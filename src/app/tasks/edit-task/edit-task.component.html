@@ -1,0 +1,19 @@
+<section class="form-wrapper">
+    <div class="cover" (click)="closeModal()"></div>
+    <form class="form" (ngSubmit)="onSubmit()" #form>
+        <button type="button" class="close-btn" (click)="closeModal()">&times;</button>
+
+        <p class="title__input-wrapper">
+            <input type="text" name="title" class="title__input" placeholder="New Title" [(ngModel)]="newTitle">
+        </p>
+
+        <p class="des__input-wrapper">
+            <textarea class="des__input" name="description" placeholder="New Description"
+                [(ngModel)]="newDes"></textarea>
+        </p>
+
+        <p class="form__btn-wrapper">
+            <button type="submit" class="form__btn">Edit Task</button>
+        </p>
+    </form>
+</section>

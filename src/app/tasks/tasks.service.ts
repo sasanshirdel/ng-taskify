@@ -6,9 +6,8 @@ import type { Status, Task } from './model/tasks.model';
 })
 export class TasksService {
 
-  // Signal اصلی برای نگهداری تسک‌ها
   private tasks = signal<Task[]>([]);
-  allTasks = this.tasks.asReadonly(); // Readonly برای جلوگیری از تغییر مستقیم
+  allTasks = this.tasks.asReadonly();
 
   constructor() {
     const loadedTasks = window.localStorage.getItem("tasks");
@@ -17,17 +16,15 @@ export class TasksService {
         this.tasks.set(JSON.parse(loadedTasks));
       } catch (e) {
         console.error("Failed to parse tasks from localStorage:", e);
-        this.tasks.set([]); // مقدار پیش‌فرض خالی
+        this.tasks.set([]);
       }
     }
   }
 
-  // ذخیره‌سازی signal در localStorage
   private saveTasks() {
     window.localStorage.setItem("tasks", JSON.stringify(this.tasks()));
   }
 
-  // اضافه کردن تسک جدید
   addTask(title: string, des: string) {
     const task: Task = {
       id: crypto.randomUUID(),
@@ -36,11 +33,10 @@ export class TasksService {
       status: "OPEN"
     };
 
-    this.tasks.update(tasks => [task, ...tasks]); // اضافه کردن به ابتدای آرایه
+    this.tasks.update(tasks => [task, ...tasks]);
     this.saveTasks();
   }
 
-  // فیلتر کردن تسک‌ها بر اساس وضعیت
   filterAllTasks(status: Status | "ALL"): Task[] {
     if (status === "ALL") {
       return this.tasks();
@@ -49,7 +45,6 @@ export class TasksService {
     }
   }
 
-  // تغییر وضعیت تسک
   changeTaskStatus(id: string, newStatus: Status) {
     this.tasks.update(tasks =>
       tasks.map(task =>
@@ -59,9 +54,17 @@ export class TasksService {
     this.saveTasks();
   }
 
-  // حذف یک تسک
   removeTask(id: string) {
     this.tasks.update(tasks => tasks.filter(task => task.id !== id));
+    this.saveTasks();
+  }
+
+  updateTask(updatedTask: Task) {
+    this.tasks.update(tasks =>
+      tasks.map(task =>
+        task.id === updatedTask.id ? { ...updatedTask } : task
+      )
+    );
     this.saveTasks();
   }
 }

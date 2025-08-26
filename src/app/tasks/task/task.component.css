@@ -7,27 +7,51 @@
     position: relative;
 }
 
-.task::before {
-    content: "";
-    width: 2rem;
-    height: 80%;
+.edit__btn {
+    width: 3rem;
+    height: 50%;
     background-color: #09BEAD;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: .2rem;
+    left: .3rem;
     margin: auto;
     border-radius: .5rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4rem rgba(96, 233, 255, 27%);
+    transition: all 100ms ease-in;
+}
+
+.edit__btn:hover {
+    background-color: #fff;
+    outline: .2rem solid #09BEAD;
+}
+
+.edit__btn:hover svg {
+    fill: #09BEAD;
 }
 
 .task-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    gap: 1rem;
 }
 
 .task__title {
     margin: 0;
+    max-width: 50%;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .task-head__controls {
@@ -48,6 +72,7 @@
     cursor: pointer;
     transition: all 100ms ease-in;
     box-shadow: 0 0 4rem rgba(96, 233, 255, 27%);
+    white-space: nowrap;
 }
 
 .task__select:hover,
@@ -60,15 +85,14 @@
 .task__des {
     text-align: start;
     margin: 0;
+    padding-left: 1rem;
 }
 
 @media (max-width: 600px) {
-    .task {
-        padding: 1rem;
-    }
 
-    .task::before {
-        content: none;
+    .edit__btn {
+        height: 40%;
+        width: 2.5rem;
     }
 
     .task__title {
@@ -77,7 +101,8 @@
         margin-top: 1rem;
     }
 
-    .task__select {
+    .task__select,
+    .del-task__btn {
         padding: 0.7rem 1rem;
         font-size: 0.9rem;
     }
@@ -92,12 +117,56 @@
 }
 
 @media (max-width: 400px) {
-    .task-head {
-        flex-direction: column-reverse;
+    .task {
+        padding: 0.7rem 1rem;
     }
 
-    .task__select {
-        margin-top: 0.5rem;
-        align-self: center;
+    .task__title {
+        max-width: none;
+        text-overflow: unset;
+        overflow: auto;
+        text-wrap: unset;
+    }
+
+    .edit__btn {
+        width: 2rem;
+        height: 35%;
+        left: .2rem;
+        bottom: -6rem;
+    }
+
+    .task-head {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .task__title {
+        font-size: 1rem;
+        margin-left: 1.5rem;
+    }
+
+    .task-head__controls {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        width: 100%;
+        gap: 0.4rem;
+    }
+
+    .task__select,
+    .del-task__btn {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+
+    .task__des {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+        line-height: 1.4;
+        margin-left: 1.5rem;
+
     }
 }
