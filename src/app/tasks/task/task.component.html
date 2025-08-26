@@ -1,1 +1,11 @@
-<p>task works!</p>
+<section class="task">
+    <div class="task-head">
+        <h2 class="task__title">{{task().title}}</h2>
+        <select class="task__select" [ngModel]="task().status" (ngModelChange)="updateStatus($event)">
+            <option value="OPEN">Open</option>
+            <option value="IN-PROGRESS">In-progress</option>
+            <option value="DONE">Completed</option>
+        </select>
+    </div>
+    <p class="task__des">{{task().des}}</p>
+</section>

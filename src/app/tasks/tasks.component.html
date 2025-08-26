@@ -1,7 +1,7 @@
 <section class="tasks">
     <div class="tasks-head">
         <h1 class="tasks-head__title">My Tasks</h1>
-        <select class="tasks-head__select">
+        <select class="tasks-head__select" [(ngModel)]="listFilterStatus">
             <option value="ALL">All</option>
             <option value="OPEN">Open</option>
             <option value="IN-PROGRESS">In Progress</option>
@@ -10,6 +10,8 @@
     </div>
 
     <ul class="tasks-list">
-        <!-- <li> <app-task /> </li> -->
+        @for (task of tasks(); track task.id) {
+        <li> <app-task [task]="task" /> </li>
+        }
     </ul>
 </section>

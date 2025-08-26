@@ -1,10 +1,11 @@
 <section class="form-wrapper">
-    <form class="form">
+    <form class="form" (ngSubmit)="onSubmit(form)" #form>
         <p class="title__input-wrapper">
-            <input type="text" name="title" class="title__input" placeholder="Title">
+            <input type="text" name="title" class="title__input" placeholder="Title" [(ngModel)]="enterdTitle">
         </p>
         <p class="des__input-wrapper">
-            <textarea class="des__input" name="description" placeholder="Description"></textarea>
+            <textarea class="des__input" name="description" placeholder="Description"
+                [(ngModel)]="enteredDes"></textarea>
         </p>
 
         <p class="form__btn-wrapper">

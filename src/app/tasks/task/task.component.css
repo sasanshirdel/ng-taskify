@@ -1,0 +1,31 @@
+.task {
+    background-color: #F57F17;
+    margin: 0;
+    margin-top: 1rem;
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+}
+
+.task-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__title {
+    margin: 0;
+}
+
+.task__select {
+    outline: none;
+    border: none;
+    background-color: #09BEAD;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.task__des {
+    text-align: start;
+    margin: 0;
+}
