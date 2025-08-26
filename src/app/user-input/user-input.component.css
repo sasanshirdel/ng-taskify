@@ -1,0 +1,80 @@
+/* 
+
+-- Resets
+
+*/
+
+input,
+button,
+textarea {
+    outline: none;
+    border: none;
+}
+
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40rem;
+    max-height: 35rem;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 10rem;
+    background-color: #09BEAD;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 5rem;
+}
+
+.title__input-wrapper {
+    height: 3.5rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.title__input {
+    width: 100%;
+    height: 100%;
+    padding: .5rem 1rem;
+}
+
+.des__input-wrapper {
+    width: 100%;
+}
+
+.des__input {
+    resize: vertical;
+    min-height: 2.5rem;
+    max-height: 8rem;
+    height: 100%;
+    width: 100%;
+    padding: .5rem 1rem;
+    border-radius: 1rem 1rem 0 1rem;
+}
+
+.form__btn-wrapper {
+    height: 3.5rem;
+    width: 100%;
+}
+
+.form__btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: #F57F17;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2rem;
+    text-align: center;
+    line-height: 10%;
+}
