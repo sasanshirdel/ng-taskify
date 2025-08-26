@@ -17,6 +17,9 @@ export class UserInputComponent {
 
 
   onSubmit(form: HTMLFormElement) {
+    if (!this.enterdTitle() || !this.enteredDes()) {
+      return;
+    }
     this.tasksService.addTask(this.enterdTitle(), this.enteredDes())
     form.reset()
   }

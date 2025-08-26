@@ -36,8 +36,6 @@ textarea {
 
 .title__input-wrapper {
     height: 3.5rem;
-    overflow: hidden;
-    border-radius: 1rem;
     width: 100%;
 }
 
@@ -45,6 +43,8 @@ textarea {
     width: 100%;
     height: 100%;
     padding: .5rem 1rem;
+    border-radius: 1rem;
+    transition: all 100ms ease-in;
 }
 
 .des__input-wrapper {
@@ -59,6 +59,12 @@ textarea {
     width: 100%;
     padding: .5rem 1rem;
     border-radius: 1rem 1rem 0 1rem;
+    transition: all 100ms ease-in;
+}
+
+.title__input:focus,
+.des__input:focus {
+    outline: .2rem solid #F57F17;
 }
 
 .form__btn-wrapper {
@@ -77,6 +83,13 @@ textarea {
     padding: 2rem;
     text-align: center;
     line-height: 10%;
+    transition: all 100ms ease-in;
+}
+
+.form__btn:hover {
+    background-color: #fff;
+    color: #F57F17;
+    outline: .2rem solid #F57F17;
 }
 
 

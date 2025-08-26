@@ -2,8 +2,22 @@
     background-color: #F57F17;
     margin: 0;
     margin-top: 1rem;
-    padding: 1rem 5rem;
+    padding: 1rem 3rem;
     border-radius: 1rem;
+    position: relative;
+}
+
+.task::before {
+    content: "";
+    width: 2rem;
+    height: 80%;
+    background-color: #09BEAD;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: .2rem;
+    margin: auto;
+    border-radius: 5rem;
 }
 
 .task-head {
@@ -16,6 +30,13 @@
     margin: 0;
 }
 
+.task-head__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
 .task__select {
     outline: none;
     border: none;
@@ -23,9 +44,60 @@
     color: #fff;
     padding: 1rem 1.5rem;
     border-radius: 1rem;
+    cursor: pointer;
+}
+
+.del-task__btn {
+    outline: none;
+    border: none;
+    background-color: #09BEAD;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
 }
 
 .task__des {
     text-align: start;
     margin: 0;
+}
+
+@media (max-width: 600px) {
+    .task {
+        padding: 1rem;
+    }
+
+    .task::before {
+        content: none;
+    }
+
+    .task__title {
+        font-size: 1.2rem;
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+
+    .task__select {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .task__des {
+        font-size: 0.9rem;
+    }
+
+    .task::before {
+        width: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .task-head {
+        flex-direction: column-reverse;
+    }
+
+    .task__select {
+        margin-top: 0.5rem;
+        align-self: center;
+    }
 }

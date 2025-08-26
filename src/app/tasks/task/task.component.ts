@@ -22,4 +22,8 @@ export class TaskComponent {
       this.tasksService.changeTaskStatus(this.task()!.id, newStatus);
     }
   }
+
+  removeTask(id: string) {
+    this.tasksService.removeTask(id)
+  }
 }

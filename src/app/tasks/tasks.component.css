@@ -32,8 +32,27 @@ ul {
     color: #fff;
     padding: 1rem 1.5rem;
     border-radius: 1rem;
+    cursor: pointer;
+    transition: all 100ms ease-in;
+}
+
+.tasks-head__select:hover {
+    background-color: #fff;
+    color: #F57F17;
+    outline: .2rem solid #F57F17;
 }
 
 .tasks-list {
     padding: 0;
+}
+
+@media (max-width: 576px) {
+    .tasks-head__title {
+        font-size: 1.6rem;
+    }
+
+    .tasks-head__select {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
 }

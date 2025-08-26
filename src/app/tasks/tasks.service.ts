@@ -1,26 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import type { Status, Task } from './model/tasks.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
-  private tasks: Task[] = [];
+
+  // Signal اصلی برای نگهداری تسک‌ها
+  private tasks = signal<Task[]>([]);
+  allTasks = this.tasks.asReadonly(); // Readonly برای جلوگیری از تغییر مستقیم
 
   constructor() {
     const loadedTasks = window.localStorage.getItem("tasks");
-
     if (loadedTasks) {
-      this.tasks = JSON.parse(loadedTasks)
+      try {
+        this.tasks.set(JSON.parse(loadedTasks));
+      } catch (e) {
+        console.error("Failed to parse tasks from localStorage:", e);
+        this.tasks.set([]); // مقدار پیش‌فرض خالی
+      }
     }
-
   }
 
-
-  get allTasks() {
-    return this.tasks;
+  // ذخیره‌سازی signal در localStorage
+  private saveTasks() {
+    window.localStorage.setItem("tasks", JSON.stringify(this.tasks()));
   }
 
+  // اضافه کردن تسک جدید
   addTask(title: string, des: string) {
     const task: Task = {
       id: crypto.randomUUID(),
@@ -28,22 +35,33 @@ export class TasksService {
       des,
       status: "OPEN"
     };
-    this.tasks.unshift(task);
-    window.localStorage.setItem("tasks", JSON.stringify(this.tasks));
+
+    this.tasks.update(tasks => [task, ...tasks]); // اضافه کردن به ابتدای آرایه
+    this.saveTasks();
   }
 
-  filterAllTasks(status: Status | "ALL") {
+  // فیلتر کردن تسک‌ها بر اساس وضعیت
+  filterAllTasks(status: Status | "ALL"): Task[] {
     if (status === "ALL") {
-      return this.tasks
+      return this.tasks();
     } else {
-      return this.tasks.filter(task => task.status === status);
+      return this.tasks().filter(task => task.status === status);
     }
   }
 
+  // تغییر وضعیت تسک
   changeTaskStatus(id: string, newStatus: Status) {
-    this.tasks = this.tasks.map(task =>
-      task.id === id ? { ...task, status: newStatus } : task
+    this.tasks.update(tasks =>
+      tasks.map(task =>
+        task.id === id ? { ...task, status: newStatus } : task
+      )
     );
-    window.localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    this.saveTasks();
+  }
+
+  // حذف یک تسک
+  removeTask(id: string) {
+    this.tasks.update(tasks => tasks.filter(task => task.id !== id));
+    this.saveTasks();
   }
 }

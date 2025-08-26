@@ -1,11 +1,14 @@
 <section class="task">
     <div class="task-head">
         <h2 class="task__title">{{task().title}}</h2>
-        <select class="task__select" [ngModel]="task().status" (ngModelChange)="updateStatus($event)">
-            <option value="OPEN">Open</option>
-            <option value="IN-PROGRESS">In-progress</option>
-            <option value="DONE">Completed</option>
-        </select>
+        <div class="task-head__controls">
+            <button type="button" class="del-task__btn" (click)="removeTask(task().id)">Remove Task</button>
+            <select class="task__select" [ngModel]="task().status" (ngModelChange)="updateStatus($event)">
+                <option value="OPEN">Open</option>
+                <option value="IN-PROGRESS">In-progress</option>
+                <option value="DONE">Completed</option>
+            </select>
+        </div>
     </div>
     <p class="task__des">{{task().des}}</p>
 </section>
