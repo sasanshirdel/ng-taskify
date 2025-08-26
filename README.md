@@ -1,59 +1,92 @@
-# 1
+# NG-Taskify 📝
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+<!-- [Live Demo](https://sasanshirdel.github.io/ng-taskify/) -->
 
-## Development server
+**NG-Taskify** is a modern and lightweight task management application built with **Angular 19** and **Signal-based state management**. This project is designed for practicing Angular Signals, Services, and building a responsive, user-friendly UI.
 
-To start a local development server, run:
+---
+
+## 🚀 Features
+
+* ✅ Add new tasks with title and description
+* ✅ Change task status (Open, In-Progress, Done)
+* ✅ Delete tasks
+* ✅ Edit tasks with a modal form
+* ✅ Persistent storage using **LocalStorage**
+* ✅ Fully responsive design for mobile and desktop
+* ✅ Modern UI with smooth CSS effects
+
+---
+
+## 🎨 Technologies Used
+
+* **Angular 19**
+* **TypeScript**
+* **Angular Signals** for state management
+* **HTML & CSS** (responsive design)
+
+---
+
+<!-- ## 🖥 Preview
+
+![NG-Taskify Screenshot](link-to-your-screenshot.png)
+
+> Check out the live demo: [NG-Taskify Demo](https://sasanshirdel.github.io/ng-taskify/)
+
+--- -->
+
+## ⚙️ Local Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/sasanshirdel/ng-taskify.git
+cd ng-taskify
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the project locally:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and navigate to:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 📁 Project Structure
+
+```
+src/
+ ├─ app/
+ │   ├─ tasks/        # Tasks component
+ │   ├─ task/         # Single task component
+ │   ├─ edit-task/    # Edit task modal component
+ │   └─ tasks.service.ts # Signal-based state management
+ ├─ assets/
+ │   └─ fonts/
+ └─ index.html
 ```
 
-## Building
+---
 
-To build the project run:
+## 👨‍💻 Developer
 
-```bash
-ng build
-```
+* Sasan Shirdel
+* [GitHub Profile](https://github.com/sasanshirdel)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 📜 License
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License
