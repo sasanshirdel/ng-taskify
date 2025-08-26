@@ -45,6 +45,7 @@ textarea {
     padding: .5rem 1rem;
     border-radius: 1rem;
     transition: all 100ms ease-in;
+    box-shadow: 0 1.5rem 4rem rgba(11, 190, 173, 40%);
 }
 
 .des__input-wrapper {
@@ -60,6 +61,7 @@ textarea {
     padding: .5rem 1rem;
     border-radius: 1rem 1rem 0 1rem;
     transition: all 100ms ease-in;
+    box-shadow: 0 1.5rem 4rem rgba(11, 190, 173, 40%);
 }
 
 .title__input:focus,
@@ -84,6 +86,7 @@ textarea {
     text-align: center;
     line-height: 10%;
     transition: all 100ms ease-in;
+    box-shadow: 0 1.5rem 4rem rgba(245, 127, 23, 24%);
 }
 
 .form__btn:hover {

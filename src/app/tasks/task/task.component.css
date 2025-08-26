@@ -17,7 +17,7 @@
     bottom: 0;
     left: .2rem;
     margin: auto;
-    border-radius: 5rem;
+    border-radius: .5rem;
 }
 
 .task-head {
@@ -37,16 +37,7 @@
     gap: .5rem;
 }
 
-.task__select {
-    outline: none;
-    border: none;
-    background-color: #09BEAD;
-    color: #fff;
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
-    cursor: pointer;
-}
-
+.task__select,
 .del-task__btn {
     outline: none;
     border: none;
@@ -55,6 +46,15 @@
     padding: 1rem 1.5rem;
     border-radius: 1rem;
     cursor: pointer;
+    transition: all 100ms ease-in;
+    box-shadow: 0 0 4rem rgba(96, 233, 255, 27%);
+}
+
+.task__select:hover,
+.del-task__btn:hover {
+    background-color: #fff;
+    color: #09BEAD;
+    outline: .2rem solid #09BEAD;
 }
 
 .task__des {
