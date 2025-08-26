@@ -1,0 +1,27 @@
+.tasks {
+    margin-top: 5rem;
+    background-color: #09BEAD;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+.tasks-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-head__title {}
+
+.tasks-head__select {
+    outline: none;
+    border: none;
+    background-color: #F57F17;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.tasks-list {}
